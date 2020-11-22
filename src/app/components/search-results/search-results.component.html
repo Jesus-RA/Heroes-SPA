@@ -1,0 +1,13 @@
+<h1>Results for "{{ termino }}"</h1>
+<hr>
+<div *ngIf="heroes.length > 0; else noResults" class="card-columns">
+
+    <app-hero-card [heroe]="heroe" [id]="heroe.index" *ngFor="let heroe of heroes; let id = index;"></app-hero-card>
+    
+</div>
+
+<ng-template #noResults>
+    <div class="alert alert-danger text-center animated fadeIn fast">
+        No results found for <strong>{{ termino }}</strong>
+    </div>
+</ng-template>

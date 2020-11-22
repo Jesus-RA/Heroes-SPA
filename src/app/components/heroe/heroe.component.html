@@ -1,0 +1,28 @@
+<h1 class="animated fadeIn">{{ heroe.nombre | uppercase }} <small>({{ heroe.aparicion | date: 'y' }})</small></h1>
+
+<hr>
+
+<div class="row animated fadeIn fast">
+    <div class="col-md-4">
+        <img [src]="heroe.img" [alt]="heroe.nombre" class="img-fluid">
+        <br><br>
+        <a *ngIf="heroe.casa === 'Marvel'; else elseButton" [routerLink]="['/heroes']" class="btn btn-outline-danger btn-block">Back</a>
+        <ng-template #elseButton>
+            <a [routerLink]="['/heroes']" class="btn btn-outline-dark btn-block">Back</a>
+        </ng-template>
+    </div>
+
+    <div class="col-md-8 mt-5 mt-md-0">
+        <h3>{{ heroe.nombre }}</h3>
+        <hr>
+        <p>
+            {{ heroe.bio }}
+        </p>
+        <div class="text-center">
+            <img *ngIf="heroe.casa === 'Marvel'; else elseImg" src="assets/img/marvel.svg" class="img-fluid" alt="Marvel" width="400">
+            <ng-template #elseImg>
+                <img src="assets/img/dc.jpg" class="img-fluid" alt="DC" width="400">
+            </ng-template>
+        </div>
+    </div>
+</div>
